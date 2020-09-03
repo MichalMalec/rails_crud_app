@@ -2,4 +2,5 @@
 
 <p><strong>Title: </strong><%= @article.title %></p>
 <p><strong>Description: </strong><%= @article.description %></p>
-<%# <button>Go back to articles</button> %>
+
+<%= link_to 'Go to all articles', articles_path, method: :get %>
