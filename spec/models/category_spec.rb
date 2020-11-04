@@ -1,8 +1,8 @@
 require "spec_helper"
 
 describe Category do
-  let(:category_name) { "Sports" }
-  let(:category) { Category.new(name: category_name) }
+  let(:category_name) { "Travelling" }
+  let(:category) { build(:category, name: category_name) }
 
   it 'should be valid' do
     expect(category).to be_valid
@@ -17,7 +17,7 @@ describe Category do
   end
 
   context 'should have name' do
-    let(:category_2) { Category.new(name: category_name) }
+    let(:category_2) { build(:category, name: category_name) }
 
     it 'that is unique' do
       category.save
