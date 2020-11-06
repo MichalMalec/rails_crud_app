@@ -32,6 +32,8 @@ describe CategoriesController, type: :request do
       expect {
         post categories_path, params: { category: { name: "Travel" } }
       }.to change(Category, :count).by(1)
+
+      response.should redirect_to category_path(Category.last)
     end
   end
 end
