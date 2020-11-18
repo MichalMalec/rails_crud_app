@@ -6,7 +6,7 @@ describe "CreateCategory", type: :request do
   
   it "should show categories listing" do
     get "/categories"
-    assert_match "Sport", response.body
+    assert_match "Sports", response.body
     assert_match "Travel", response.body
   end
 end

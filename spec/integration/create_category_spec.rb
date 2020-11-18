@@ -1,7 +1,13 @@
 require "spec_helper"
 
 describe "CreateCategory", type: :request do
+  let(:admin_user_1) { create(:user, username: "joedoa", email: "joedoa@o2.pl",
+                          password: "password123", admin: true )}
+  let(:admin_user_2) { create(:user, username: "joeiedoe", email: "joeiedoe@o2.pl",
+                          password: "password123", admin: true )}
+  
   it "get new category form and create category" do
+    sign_in_as(admin_user_1)
     get "/categories/new"
     expect(response.status).to eq 200
 
@@ -16,6 +22,7 @@ describe "CreateCategory", type: :request do
 
   context "form validations" do
     it "rejects invalid category if name is empty" do
+      sign_in_as(admin_user_2)
       get "/categories/new"
       expect(response.status).to eq 200
 

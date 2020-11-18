@@ -27,6 +27,8 @@ RSpec.configure do |config|
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.
   config.before(:each) do |example|
+    clean_strategy = example.metadata[:clean] || :transaction
+    DatabaseCleaner.strategy = clean_strategy
     DatabaseCleaner.start
   end
 
@@ -56,6 +58,10 @@ RSpec.configure do |config|
   # inherited by the metadata hash of host groups and examples, rather than
   # triggering implicit auto-inclusion in groups with matching metadata.
   config.shared_context_metadata_behavior = :apply_to_host_groups
+
+  def sign_in_as(user)
+    post login_path, params: { session: { email: user.email, password: "password123" } }
+  end
 
 # The settings below are suggested to provide a good initial experience
 # with RSpec, but feel free to customize to your heart's content.
