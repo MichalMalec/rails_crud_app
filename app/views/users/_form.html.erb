@@ -29,8 +29,10 @@
         </div>
       <% end %>
     </div>
-      <div class="mb-3">
+      <% if @user == current_user %>
         <%= link_to '[ Cancel and return to your profile ]', user_path(@user), class: "text-info" %>
-      </div>
+      <% else %>
+        <%= link_to '[ Cancel and return to all profiles ]', users_path, class: "text-info" %>
+      <% end %>
   </div>
 </div>

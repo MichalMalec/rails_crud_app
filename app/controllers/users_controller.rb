@@ -39,14 +39,10 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    if @user == current_user && current_user.admin?
-      @user.destroy
-    else
-      @user.destroy
-      session[:user_id] = nil
-    end
-    flash[:notice] = "Account and all associated articles were succesfully deleted"
-    redirect_to users_path
+    @user.destroy
+    session[:user_id] = nil if @user == current_user
+    flash[:notice] = "Account and all associated articles successfully deleted"
+    redirect_to users_pathc
   end
 
   private
