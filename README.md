@@ -1,7 +1,12 @@
 # README
 
+## Description
+
 * App link: https://fast-meadow-88078.herokuapp.com/
+
+```bash
 Rails + Bootstrap blog app allowing Bloggers to add their articles and assign them to categories.
+```
 
 Two type of users(bloggers):
 - admin user,
@@ -19,7 +24,9 @@ Normal user can:
 - remove only his profile,
 - edit only his profile.
 
-
+```bash
+-------------------------------------------------------
+```
 * git push heroku master
 * heroku run rails db:migrate
 * heroku open
