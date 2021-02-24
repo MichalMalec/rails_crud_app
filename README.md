@@ -24,6 +24,12 @@ Normal user can:
 - remove only his profile,
 - edit only his profile.
 
+Not logged in user can only:
+- preview all articles,
+- preview all users,
+- preview all categories,
+- cannot modify anything.
+
 ```bash
 -------------------------------------------------------
 ```
